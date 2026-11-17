@@ -1,0 +1,251 @@
+{
+  "entities": {
+    "UserWorkspace": {
+      "title": "UserWorkspace",
+      "description": "Private user workspace metadata, custom presets, and payroll draft",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "displayName": {
+          "type": "string",
+          "maxLength": 150
+        },
+        "invoicePresets": {
+          "type": "array"
+        },
+        "schedulePresets": {
+          "type": "array"
+        },
+        "payrollDraft": {
+          "type": "object"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["uid", "createdAt", "updatedAt"]
+    },
+    "Invoice": {
+      "title": "Invoice",
+      "description": "Customer rental invoice / nota record owned by a user",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "invoiceNumber": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "customerName": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "address": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "eventDate": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "downPayment": {
+          "type": "number"
+        },
+        "items": {
+          "type": "array"
+        },
+        "tuanHajatSignature": {
+          "type": "string",
+          "maxLength": 150000
+        },
+        "hormatKamiSignature": {
+          "type": "string",
+          "maxLength": 150000
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "paymentStatus": {
+          "type": "string",
+          "enum": ["LUNAS", "BELUM_LUNAS", "AUTO"]
+        },
+        "displayCreatedAt": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["ownerId", "invoiceNumber", "customerName", "address", "eventDate", "downPayment", "items", "displayCreatedAt", "createdAt", "updatedAt"]
+    },
+    "Schedule": {
+      "title": "Schedule",
+      "description": "Tent setup & event schedule SPK record owned by a user",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "customerName": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "address": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "orderDetails": {
+          "type": "string",
+          "maxLength": 5000
+        },
+        "setupDate": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "teardownDate": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "status": {
+          "type": "string",
+          "enum": ["AKTIF", "SELESAI"]
+        },
+        "picCrew": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "sourceInvoiceId": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "sourceInvoiceNumber": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "displayCreatedAt": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "completedAt": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["ownerId", "customerName", "address", "phone", "orderDetails", "setupDate", "teardownDate", "status", "displayCreatedAt", "createdAt", "updatedAt"]
+    },
+    "Payroll": {
+      "title": "Payroll",
+      "description": "Crew payroll / gaji table record owned by a user",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "payrollNumber": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "date": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "columns": {
+          "type": "array"
+        },
+        "rows": {
+          "type": "array"
+        },
+        "preparedBySignature": {
+          "type": "string",
+          "maxLength": 150000
+        },
+        "receivedBySignature": {
+          "type": "string",
+          "maxLength": 150000
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "displayCreatedAt": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["ownerId", "payrollNumber", "title", "date", "columns", "rows", "displayCreatedAt", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserWorkspace" },
+      "description": "Private user workspace storing user metadata, custom presets, and active payroll draft"
+    },
+    "/invoices/{invoiceId}": {
+      "schema": { "$ref": "#/entities/Invoice" },
+      "description": "Saved customer invoices / nota documents scoped strictly to ownerId"
+    },
+    "/schedules/{scheduleId}": {
+      "schema": { "$ref": "#/entities/Schedule" },
+      "description": "Saved tent installation & event schedules scoped strictly to ownerId"
+    },
+    "/payrolls/{payrollId}": {
+      "schema": { "$ref": "#/entities/Payroll" },
+      "description": "Saved crew payroll summaries scoped strictly to ownerId"
+    }
+  }
+}

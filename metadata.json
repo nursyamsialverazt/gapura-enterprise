@@ -1,0 +1,6 @@
+{
+  "name": "Gapura Enterprise",
+  "description": "Aplikasi manajemen cetak nota pemesanan, jadwal pasang bongkar tenda, dan penggajian kru Gapura Enterprise.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
