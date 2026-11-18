@@ -1,10 +1,12 @@
 {
+  "id": "/",
   "name": "Gapura Enterprise - Cetak Nota & Invoice",
   "short_name": "Gapura Nota",
-  "description": "Aplikasi cetak nota dan invoice Gapura Enterprise wedding organizer & decoration.",
+  "description": "Aplikasi cetak nota, jadwal pasang bongkar tenda, dan penggajian kru Gapura Enterprise.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#8B0000",
+  "background_color": "#ffffff",
   "theme_color": "#8B0000",
   "orientation": "portrait",
   "icons": [
@@ -15,19 +17,13 @@
       "purpose": "any"
     },
     {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
       "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/icon-512-maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gapura-invoice-v2';
+const CACHE_NAME = 'gapura-invoice-v3';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -6,6 +6,7 @@ const STATIC_ASSETS = [
   '/favicon.png',
   '/icon-192.png',
   '/icon-512.png',
+  '/icon-512-maskable.png',
   '/apple-touch-icon.png'
 ];
 
@@ -42,6 +43,7 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
+  if (url.origin !== self.location.origin) return;
 
   // If navigation (opening webpage / refreshing)
   if (event.request.mode === 'navigate') {
@@ -55,7 +57,7 @@ self.addEventListener('fetch', (event) => {
           return response;
         })
         .catch(() => {
-          return caches.match('/index.html') || caches.match('/');
+          return caches.match('/index.html').then((cached) => cached || caches.match('/'));
         })
     );
     return;
